@@ -1,0 +1,16 @@
+%tr.info
+  %td.text-center
+    = link_to truncate(link.href, length: 40), link.href, target: '_blank'
+  %td.text-center
+    = link.description.gsub(/\n/, '<br>').html_safe
+  %td.text-center
+    = get_formatted_tags(link)
+  %td.text-center
+    = link.created_at
+  %td.text-center
+    = link_to 'Edit', edit_link_path(link), class: 'btn btn-warning'
+  %td.text-center
+    -# defined at links_helper.rb
+    = perform_link(link)
+  %td.text-center
+    = link_to 'Delete', link, method: :delete, data: {confirm: 'You sure?'}, class: 'btn btn-danger'

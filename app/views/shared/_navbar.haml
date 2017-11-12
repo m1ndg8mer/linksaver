@@ -11,9 +11,9 @@
       %ul.nav.navbar-nav
         %li
           %a{href: root_path} Home
-        -# if current_user
+        - if current_user
           %li
-            %a{href: users_bicycles_path} Bicycles panel
+            %a{href: links_path} Saved Links
       %ul.nav.navbar-nav.navbar-right
         - if current_user
           %li

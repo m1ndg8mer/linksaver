@@ -7,6 +7,9 @@ class Link
   field :description, type: String
   field :aasm_state
 
+  validates :href, presence: true
+  validates :description, length: { maximum: 100 }
+
   belongs_to :user
 
   aasm do
