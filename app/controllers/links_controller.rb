@@ -11,17 +11,24 @@ class LinksController < ApplicationController
   end
 
   def create
-    current_user.links.create!(link_params)
+    @link = current_user.links.new(link_params)
 
-    redirect_to links_path, notice: 'Link was successfully created!'
+    if @link.save
+      redirect_to links_path, notice: 'Link was successfully created!'
+    else
+      render :new
+    end
+
   end
 
   def edit; end
 
   def update
-    @link.update!(link_params)
-
-    redirect_to links_path, notice: 'Link was successfully updated.'
+    if @link.update_attributes(link_params)
+      redirect_to links_path, notice: 'Link was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy

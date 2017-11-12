@@ -30,8 +30,8 @@ class Link
   private
 
   def invalid_format?
-    return false if href =~ /^http/
-    true
+    return true unless self.href =~ /^http/
+    false
   end
 
   def normalize_href

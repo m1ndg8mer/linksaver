@@ -1,9 +1,10 @@
 %tr.info
   %td.text-center
-    = link_to truncate(link.href, length: 40), link.href, target: '_blank'
+    = link_to truncate(link.href, length: 30), link.href, target: '_blank'
   %td.text-center
     = link.description.gsub(/\n/, '<br>').html_safe
   %td.text-center
+    -# defined at links_helper.rb
     = get_formatted_tags(link)
   %td.text-center
     = link.created_at
