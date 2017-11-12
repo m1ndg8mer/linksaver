@@ -21,6 +21,9 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'kaminari-mongoid'
+gem 'kaminari-actionview'
+gem 'rails_admin', '~> 1.2'
 gem 'devise'
 
 group :development, :test do

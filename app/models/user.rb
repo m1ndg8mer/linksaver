@@ -7,6 +7,7 @@ class User
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
   field :remember_created_at, type: Time
+  field :admin, type: Boolean, default: false
 
   has_many :links
 
