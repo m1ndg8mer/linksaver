@@ -9,8 +9,8 @@ module LinksHelper
     link_to name, href, method: :patch, data: {confirm: 'You sure?'}, class: 'btn btn-primary'
   end
 
-  # TODO
-  def get_formatted_tags(tags)
-    'Link have no tags'
+  def get_formatted_tags(link)
+    return 'Link have no tags' unless link.tag_list.present?
+    link.tag_list
   end
 end

@@ -13,6 +13,7 @@ class Link
   before_save :normalize_href, if: :invalid_format?
 
   belongs_to :user
+  has_and_belongs_to_many :tags
 
   aasm do
     state :private, initial: true
@@ -27,6 +28,16 @@ class Link
     end
   end
 
+  def tag_list
+    tags.map(&:name).join(', ')
+  end
+
+  def tag_list=(names)
+    self.tags = names.split(',').map do |n|
+      Tag.where(name: n.strip).first_or_create!
+    end
+  end
+
   private
 
   def invalid_format?
@@ -35,6 +46,6 @@ class Link
   end
 
   def normalize_href
-    self.href = 'http://' + self.href
+    self.href.prepend('http://')
   end
 end

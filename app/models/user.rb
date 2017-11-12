@@ -9,4 +9,9 @@ class User
   field :remember_created_at, type: Time
 
   has_many :links
+
+  # return tags that user used
+  def tags
+    Tag.where(:_id.in => self.links.distinct(:tag_ids))
+  end
 end
