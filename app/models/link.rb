@@ -10,6 +10,8 @@ class Link
   validates :href, presence: true
   validates :description, length: { maximum: 100 }
 
+  before_save :normalize_href, if: :invalid_format?
+
   belongs_to :user
 
   aasm do
@@ -23,5 +25,16 @@ class Link
     event :hide do
       transitions from: :public, to: :private
     end
+  end
+
+  private
+
+  def invalid_format?
+    return false if href =~ /^http/
+    true
+  end
+
+  def normalize_href
+    self.href = 'http://' + self.href
   end
 end
