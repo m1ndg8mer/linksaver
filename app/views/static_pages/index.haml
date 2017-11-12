@@ -1,1 +1,8 @@
-%h1 Hello
+.row
+  .col-md-8
+    %h1.page-header.text-center Public Links
+    - @links.each do |link|
+      = render partial: 'static_pages/link', locals: { link: link }
+    = render partial: 'shared/empty_list_alert', locals: { collection: @links }
+  .col-md-4
+    = render 'shared/widget'

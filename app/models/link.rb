@@ -8,7 +8,7 @@ class Link
   field :aasm_state
 
   validates :href, presence: true
-  validates :description, length: { maximum: 100 }
+  validates :description, length: { maximum: 200 }
 
   before_save :normalize_href, if: :invalid_format?
 

@@ -1,0 +1,14 @@
+.row
+  .col-md-8
+    %h2
+      = link_to link.href, link.href, target: '_blank'
+    %p.lead
+      = "by #{link.user.email}"
+    %p
+      %span.glyphicon.glyphicon-time
+      = "Posted on #{link.created_at.localtime}"
+  .col-md-4
+    %p
+      %em
+        = link.description.gsub(/\n/, '<br>').html_safe
+%hr
