@@ -45,11 +45,11 @@ class Link
   private
 
   def invalid_format?
-    return true unless self.href =~ /^http/
+    return true unless href =~ /^http/
     false
   end
 
   def normalize_href
-    self.href.prepend('http://')
+    href.prepend('http://')
   end
 end

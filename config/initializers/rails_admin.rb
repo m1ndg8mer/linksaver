@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.main_app_name = ["LinkSaver"]
+  config.main_app_name = ['LinkSaver']
   ### Popular gems integration
 
   ## == Devise ==

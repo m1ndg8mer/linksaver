@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!
-  before_action :initialize_link, only: %i(edit update destroy share hide)
+  before_action :initialize_link, only: %i[edit update destroy share hide]
 
   def index
     @links = current_user.links
@@ -17,7 +17,6 @@ class LinksController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit; end
@@ -52,14 +51,13 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(
-        :href,
-        :description,
-        :tag_list
+      :href,
+      :description,
+      :tag_list
     )
   end
 
   def initialize_link
     @link = Link.find(params[:id])
   end
-
 end
