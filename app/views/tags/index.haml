@@ -1,0 +1,5 @@
+%h1.text-center Used tags
+%hr
+.row
+  = render @tags
+= render partial: 'shared/empty_list_alert', locals: { collection: @tags }

@@ -7,7 +7,7 @@
     -# defined at links_helper.rb
     = get_formatted_tags(link)
   %td.text-center
-    = link.created_at
+    = link.created_at.localtime.strftime("%B %d, %Y at %r")
   %td.text-center
     = link_to 'Edit', edit_link_path(link), class: 'btn btn-warning'
   %td.text-center

@@ -12,7 +12,6 @@ class LinksController < ApplicationController
 
   def create
     @link = current_user.links.new(link_params)
-
     if @link.save
       redirect_to links_path, notice: 'Link was successfully created!'
     else

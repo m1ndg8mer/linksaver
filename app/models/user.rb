@@ -10,7 +10,7 @@ class User
 
   has_many :links
 
-  # return tags that user used
+  # return used tags by user
   def tags
     Tag.where(:_id.in => self.links.distinct(:tag_ids))
   end

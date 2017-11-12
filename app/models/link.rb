@@ -38,6 +38,10 @@ class Link
     end
   end
 
+  def self.tagged_with(id)
+    Link.where(tag_ids: id)
+  end
+
   private
 
   def invalid_format?
