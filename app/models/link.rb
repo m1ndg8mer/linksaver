@@ -15,6 +15,7 @@ class Link
   belongs_to :user
   has_and_belongs_to_many :tags
 
+  # User could share link to all user
   aasm do
     state :private, initial: true
     state :public
